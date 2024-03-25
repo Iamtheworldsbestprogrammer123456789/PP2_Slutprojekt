@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hunddagis/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hunddagis/Hunddagis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hunddagis/Owner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="La till klasserna kopplat till mitt klassdiagram">
+      <change afterPath="$PROJECT_DIR$/Books.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BookFileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Librarian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Loaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +30,16 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2dXEOwsOJjdHFJN140lgqpApIFO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,10 +55,16 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-20",
+    "last_opened_file_path": "C:/Users/Carl.hummerhielm/IdeaProjects/PP2_Slutprojekt",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,11 +76,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710145997983</updated>
-      <workItem from="1710145999188" duration="4749000" />
+      <workItem from="1710145999188" duration="10299000" />
+      <workItem from="1711351824427" duration="841000" />
+      <workItem from="1711352762542" duration="3126000" />
     </task>
+    <task id="LOCAL-00001" summary="La till klasserna kopplat till mitt klassdiagram">
+      <option name="closed" value="true" />
+      <created>1710832830280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710832830280</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="La till klasserna kopplat till mitt klassdiagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="La till klasserna kopplat till mitt klassdiagram" />
   </component>
 </project>
