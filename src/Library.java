@@ -7,9 +7,15 @@ public class Library {
         return books;
     }
 
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
     public Library() {
         generateBooks();
-        new Loaner();
+        Loaner loaner = new Loaner();
+        loaner.setLoan(books.get(1));
+        System.out.println(loaner.getLoans().toString());
     }
 
     private void generateBooks() {

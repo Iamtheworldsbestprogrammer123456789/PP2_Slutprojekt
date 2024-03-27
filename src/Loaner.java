@@ -7,7 +7,25 @@ public class Loaner extends User {
         loanBook();
     }
 
+    public void printLoans() {
+        for (Book book : loans) {
+            System.out.println(book);
+        }
+    }
+
+    public void loanBook() {
+
+    }
+
+    public void returnBook() {
+
+    }
+
     public void setLoan(Book book) {
-        this.loans = loans;
+        this.loans.add(book);
+    }
+
+    public ArrayList<Book> getLoans() {
+        return loans;
     }
 }

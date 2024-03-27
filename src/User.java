@@ -18,8 +18,5 @@ public class User {
         return this.id;
     }
 
-    public void loanBook() {
-        Library library = new Library();
-        System.out.println(library.getBooks());
-    }
+
 }
