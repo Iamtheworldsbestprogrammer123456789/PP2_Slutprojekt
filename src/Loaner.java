@@ -1,31 +1,38 @@
 import java.util.ArrayList;
 
 public class Loaner extends User {
-    ArrayList<Book> loans = new ArrayList<>();
+    ArrayList<Loan> loans = new ArrayList<>();
 
     public Loaner() {
-        loanBook();
+        //loanBook();
     }
 
-    public void printLoans() {
-        for (Book book : loans) {
+    //Prints all the users loans
+    public void printLoanedBooks() {
+        if (loans.isEmpty()) {
+            System.out.println("You have no loaned books.");
+            return;
+        }
+        System.out.println("Loaned books: ");
+        for (Loan loan : loans) {
+            Book book = loan.getBook();
             System.out.println(book);
         }
     }
 
-    public void loanBook() {
-
+    //Loans a book if it's not loaned
+    public void loanBook(Book book) {
+        Loan loan = new Loan(book, this);
+        loans.add(loan);
     }
 
-    public void returnBook() {
-
+    //Returns a book
+    public void returnBook(Book book) {
+        Loan loan = new Loan(book, this);
+        loans.remove(loan);
     }
 
-    public void setLoan(Book book) {
-        this.loans.add(book);
-    }
-
-    public ArrayList<Book> getLoans() {
+    public ArrayList<Loan> getLoans() {
         return loans;
     }
 }

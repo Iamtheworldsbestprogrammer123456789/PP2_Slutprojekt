@@ -1,34 +1,41 @@
 public class Book {
-    private String title;
-    private String author;
-    private String location;
+    private final String TITLE;
+    private final String AUTHOR;
+    private final String LOCATION;
+    private Boolean loaned = false;
     //Lägg till borrowed
 
-    public Book(String title, String author, String location) {
-        this.title = title;
-        this.author = author;
-        this.location = location;
+    public Book(String title, String AUTHOR, String LOCATION) {
+        this.TITLE = title;
+        this.AUTHOR = AUTHOR;
+        this.LOCATION = LOCATION;
     }
 
-    public String getTitle() {
-        return this.title;
+    public String getTITLE() {
+        return this.TITLE;
     }
 
-    public String getAuthor() {
-        return this.author;
+    public String getAUTHOR() {
+        return this.AUTHOR;
     }
 
-    public String getLocation() {
-        return this.location;
+    public String getLOCATION() {
+        return this.LOCATION;
     }
 
+    public Boolean getLoaned() {
+        return loaned;
+    }
+
+    public void setLoaned(Boolean loaned) {
+        this.loaned = loaned;
+    }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", location='" + location + '\'' +
+        return "title: " + TITLE + '\'' +
+                ", author: " + AUTHOR + '\'' +
+                ", location: " + LOCATION + '\'' +
                 '}';
     }
 }

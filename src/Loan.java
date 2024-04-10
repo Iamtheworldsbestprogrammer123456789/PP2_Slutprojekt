@@ -1,20 +1,31 @@
 public class Loan {
-    Book book;
-    User user;
+    private Book book;
+    private Loaner loaner;
+
+    public Loan(Book book, Loaner loaner) {
+        setBook(book);
+        this.loaner = loaner;
+    }
 
     public Book getBook() {
         return book;
     }
 
-    public User getUser() {
-        return user;
+    public User getLoaner() {
+        return loaner;
     }
 
     public void setBook(Book book) {
-        this.book = book;
+        if (!book.getLoaned()) {
+            this.book = book;
+        } else {
+            System.out.println("Book is loaned");
+        }
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setLoaner(Loaner loaner) {
+        this.loaner = loaner;
     }
+
+    //Todo: LIV:fix view return date
 }

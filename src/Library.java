@@ -14,8 +14,12 @@ public class Library {
     public Library() {
         generateBooks();
         Loaner loaner = new Loaner();
-        loaner.setLoan(books.get(1));
-        System.out.println(loaner.getLoans().toString());
+        loaner.loanBook(books.get(0));
+        loaner.loanBook(books.get(1));
+        loaner.loanBook(books.get(2));
+        loaner.loanBook(books.get(3));
+        // todo: LIV: Enale loaning
+        loaner.printLoanedBooks();
     }
 
     private void generateBooks() {

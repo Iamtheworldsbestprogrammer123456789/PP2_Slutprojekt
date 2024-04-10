@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
 public class LibraryUserInterface {
+    //Gör en instans av liberary och den nuvarande inloggade lånaren
+    private Library library;
+    private Loaner currentLoaner;
+
+    
+    public LibraryUserInterface() {
+        this.library = library;
+    }
+
     public static int try_catch_int() {
         Scanner scan = new Scanner(System.in);
         int tal = 0;
@@ -17,4 +26,5 @@ public class LibraryUserInterface {
 
         return tal;
     }
+
 }
