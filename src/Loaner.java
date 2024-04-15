@@ -3,30 +3,35 @@ import java.util.ArrayList;
 public class Loaner extends User {
     ArrayList<Loan> loans = new ArrayList<>();
 
-    public Loaner() {
-        //loanBook();
+    public Loaner(String name, String id) {
+        super(name, id);
     }
 
-    //Prints all the users loans
+    // todo: lägg till addloans
+    public void createLoaner() {
+
+    }
+
+    //Printar alla loanerns lån
     public void printLoanedBooks() {
         if (loans.isEmpty()) {
-            System.out.println("You have no loaned books.");
+            System.out.println("Du har inga lånade böcker");
             return;
         }
-        System.out.println("Loaned books: ");
+        System.out.println("Lånade böcker: ");
         for (Loan loan : loans) {
             Book book = loan.getBook();
             System.out.println(book);
         }
     }
 
-    //Loans a book if it's not loaned
+    //Lånar en specifik bok om den inte är lånad
     public void loanBook(Book book) {
         Loan loan = new Loan(book, this);
         loans.add(loan);
     }
 
-    //Returns a book
+    //Lämnar tillbaka en bok
     public void returnBook(Book book) {
         Loan loan = new Loan(book, this);
         loans.remove(loan);
