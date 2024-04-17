@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Loaner extends User {
     ArrayList<Loan> loans = new ArrayList<>();
@@ -19,9 +20,11 @@ public class Loaner extends User {
             return;
         }
         System.out.println("Lånade böcker: ");
+        int num = 1;
         for (Loan loan : loans) {
             Book book = loan.getBook();
-            System.out.println(book);
+            System.out.println(num + ": " + book);
+            num++;
         }
     }
 
@@ -29,12 +32,29 @@ public class Loaner extends User {
     public void loanBook(Book book) {
         Loan loan = new Loan(book, this);
         loans.add(loan);
+        book.setLoaned(true);
+        System.out.println("Du har nu lånat " + book.getTITLE());
     }
 
     //Lämnar tillbaka en bok
-    public void returnBook(Book book) {
-        Loan loan = new Loan(book, this);
-        loans.remove(loan);
+    public void returnBook(Loaner loaner, Scanner scan) {
+        if (!loaner.getLoans().isEmpty()) {
+            loaner.printLoanedBooks();
+            System.out.println("Skriv titeln på boken som du vill Lämna tillbaka:");
+            scan.nextLine();
+            String title = scan.nextLine();
+            ArrayList<Loan> loans = loaner.getLoans();
+            for (int i = 0; i < loans.size(); i++) {
+                Loan loan = loans.get(i);
+                if (loan.getBook().getTITLE().equalsIgnoreCase(title)) {
+                    loaner.getLoans().remove(loan);
+                    loan.getBook().setLoaned(false);
+                    System.out.println(loan.getBook().getTITLE() + "har lämnats tillbaka");
+                    i--;
+                    break;
+                }
+            }
+        }
     }
 
     public ArrayList<Loan> getLoans() {

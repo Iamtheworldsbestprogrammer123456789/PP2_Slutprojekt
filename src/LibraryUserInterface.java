@@ -15,11 +15,14 @@ public class LibraryUserInterface {
 
     public void Start() {
         System.out.println("Välkommen till NTIs bibliotek!");
-
         while (true) {
-            System.out.println("1. Logga in som lånare");
-            System.out.println("2. Kolla på böcker");
-            System.out.println("3. Avsluta");
+            //TODO: gör denna popup till en metod
+            System.out.println("___________________________________________");
+            System.out.println("|  1. Logga in som lånare                 |");
+            System.out.println("|  2. Skapa ett konto                     |");
+            System.out.println("|  3. Kolla på böcker                     |");
+            System.out.println("|  4. Avsluta                             |");
+            System.out.println("|__________________________________________");
             System.out.print("Välj ett alternativ: ");
 
             int choice = try_catch_int();
@@ -28,8 +31,12 @@ public class LibraryUserInterface {
                     LogInLoaner();
                     break;
                 case 2:
-                    BrowseBooks();
+                    library.createUser();
+                    break;
                 case 3:
+                    BrowseBooks();
+                    break;
+                case 4:
                     System.out.println("Hejdå!");
                     return;
                 default:
@@ -40,23 +47,58 @@ public class LibraryUserInterface {
 
     private void LoanerMenu() {
         while (true) {
-            System.out.println("1. Kolla på böcker");
-            System.out.println("2. Visa lånade böcker");
-            System.out.println("3. Lämna tillbaka en bok");
-            System.out.println("4. Logga ut");
-            System.out.print("Välj ett alternativ: ");
+            //TODO: gör denna popup till en metod
+            System.out.println("___________________________________________");
+            System.out.println("|  1. Kolla på böcker                      |");
+            System.out.println("|  2. Låna en bok                          |");
+            System.out.println("|  3. Visa lånade böcker                   |");
+            System.out.println("|  4. Lämna tillbaka en bok                |");
+            System.out.println("|  5. Logga ut                             |");
+            System.out.println("|__________________________________________|");
+            System.out.print("Välj ett alternativ:");
+
+            int choice = try_catch_int();
+            switch (choice) {
+                case 1:
+                    BrowseBooks();
+                    break;
+                case 2:
+                    LoanBook();
+                    break;
+                case 3:
+                    currentLoaner.printLoanedBooks();
+                    break;
+                case 4:
+                    currentLoaner.returnBook(currentLoaner, scan);
+                    break;
+                case 5:
+                    currentLoaner = null;
+                    System.out.println("Hejdå!");
+                    return;
+                default:
+                    System.out.println("Ogiltigt alternativ, försök igen.");
+            }
         }
+
     }
 
     private void LogInLoaner() {
         if (!library.getLoaners().isEmpty()) {
-            System.out.println("Ange ditt personnummer:");
-            String loanerID = scan.nextLine();
-            currentLoaner = library.getLoaners().get(loanerID);
-            System.out.println("Inloggad som" + currentLoaner.getName());
-            LoanerMenu();
+            scan.nextLine();
+            while (true) {
+                System.out.print("Ange ditt personnummer:");
+                String loanerID = scan.nextLine();
+                if (library.getLoaners().containsKey(loanerID)) {
+                    currentLoaner = library.getLoaners().get(loanerID);
+                    System.out.println("Inloggad som " + currentLoaner.getName());
+                    LoanerMenu();
+                    break;
+                } else {
+                    System.out.println("Kunde inte hitta en lånare med det angivna personnummret");
+                }
+            }
         } else {
-            System.out.println("Det finns inga tillgängliga lånare");
+            System.out.println("Det finns inga tillgängliga lånare\n");
         }
 
     }
@@ -68,6 +110,36 @@ public class LibraryUserInterface {
         }
     }
 
+    private void LoanBook() {
+        BrowseBooks();
+        System.out.println("Ange titel på boken du vill låna: ");
+        scan.nextLine();
+        String titel = scan.nextLine();
+        for (Book book : library.getBooks()) {
+            if (book.getTITLE().equalsIgnoreCase(titel)) {
+                if (book.getLoaned()) {
+                    System.out.println("Boken är lånad.");
+                } else {
+                    currentLoaner.loanBook(book);
+                }
+            }
+        }
+    }
+
+    private void ReturnBook() {
+        if (!currentLoaner.getLoans().isEmpty()) {
+            currentLoaner.printLoanedBooks();
+            System.out.println("Skriv titeln på boken som du vill Lämna tillbaka:");
+            String title = scan.nextLine();
+            for (Loan loan : currentLoaner.getLoans()) {
+                if (loan.getBook().getTITLE().equalsIgnoreCase(title)) {
+                    currentLoaner.getLoans().remove(loan);
+                    loan.getBook().setLoaned(false);
+                    System.out.println(loan.getBook().getTITLE() + "har lämnats tillbaka");
+                }
+            }
+        }
+    }
 
     public static int try_catch_int() {
         int tal = 0;

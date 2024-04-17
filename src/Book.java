@@ -33,9 +33,8 @@ public class Book {
 
     @Override
     public String toString() {
-        return "title: " + TITLE + '\'' +
-                ", author: " + AUTHOR + '\'' +
-                ", location: " + LOCATION + '\'' +
-                '}';
+        return "Titel: " + TITLE + '\'' +
+                ", Författare: " + AUTHOR + '\'' +
+                ", Plats: " + LOCATION;
     }
 }

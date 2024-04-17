@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        new Library();
-        //TODO: Starta 
+        Library library = new Library();
+        LibraryUserInterface vetintevadjagskakalladenhär = new LibraryUserInterface(library);
+        library.generateBooks();
+        library.generateLoaners();
+        vetintevadjagskakalladenhär.Start();
     }
 }
