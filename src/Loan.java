@@ -19,7 +19,7 @@ public class Loan {
         if (!book.getLoaned()) {
             this.book = book;
         } else {
-            System.out.println("Book is loaned");
+            System.out.println("Boken är lånad");
         }
     }
 

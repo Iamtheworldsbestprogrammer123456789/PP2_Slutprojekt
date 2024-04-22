@@ -54,6 +54,8 @@ public class Loaner extends User {
                     break;
                 }
             }
+        } else {
+            System.out.println("Du har inga lånade böcker");
         }
     }
 

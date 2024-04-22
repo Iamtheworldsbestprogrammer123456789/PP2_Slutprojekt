@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Library {
+    BookFileManager bfm = new BookFileManager();
     ArrayList<Book> books = new ArrayList<>();
     HashMap<String, Loaner> loaners = new HashMap<>();
 
@@ -30,25 +31,45 @@ public class Library {
     }
 
     public void generateLoaners() {
-        loaners.put("2204160001", new Loaner("Alice", "2204160001"));
-        loaners.put("2204160002", new Loaner("Bob", "2204160002"));
-        loaners.put("2204160003", new Loaner("Catherine", "2204160003"));
-        loaners.put("2204160004", new Loaner("David", "2204160004"));
-        loaners.put("2204160005", new Loaner("Eva", "2204160005"));
-        loaners.put("2204160006", new Loaner("Frank", "2204160006"));
-        loaners.put("2204160007", new Loaner("Grace", "2204160007"));
-        loaners.put("2204160008", new Loaner("Henry", "2204160008"));
-        loaners.put("2204160009", new Loaner("Irene", "2204160009"));
-        loaners.put("2204160010", new Loaner("Jack", "2204160010"));
+        loaners.put("202204160001", new Loaner("Alice", "202204160001"));
+        loaners.put("192204160002", new Loaner("Bob", "192204160002"));
+        loaners.put("202204160003", new Loaner("Catherine", "202204160003"));
+        loaners.put("202204160004", new Loaner("David", "202204160004"));
+        loaners.put("202204160005", new Loaner("Eva", "202204160005"));
+        loaners.put("202204160006", new Loaner("Frank", "202204160006"));
+        loaners.put("202204160007", new Loaner("Grace", "202204160007"));
+        loaners.put("202204160008", new Loaner("Henry", "202204160008"));
+        loaners.put("202204160009", new Loaner("Irene", "202204160009"));
+        loaners.put("202204160010", new Loaner("Jack", "202204160010"));
+    }
+
+    public Boolean checkPersonnummer(String personnummer) {
+        if (personnummer.length() == 12) {
+            int year = Integer.parseInt(personnummer.substring(0, 4));
+            int month = Integer.parseInt(personnummer.substring(4, 6));
+            int day = Integer.parseInt(personnummer.substring(6, 8));
+            if (year >= 1900 && year <= 2024 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void createUser() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Namn: ");
         String namn = scan.nextLine();
-        System.out.print("Personnummer: ");
-        String id = scan.nextLine();
-        loaners.put(id, new Loaner(namn, id));
+        while (true) {
+            System.out.println("Ange ditt personnummer i formatet yyyymmddxxxx");
+            System.out.print(": ");
+            String id = scan.nextLine();
+            if (checkPersonnummer(id)) {
+                loaners.put(id, new Loaner(namn, id));
+                break;
+            } else {
+                System.out.println("Ogiltigt personnummer.");
+            }
+        }
     }
 
 }

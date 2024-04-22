@@ -1,27 +1,43 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+
 public class BookFileManager {
-/*
-    public void Readfile(){
-        System.out.println("Filnamn:");
-        //String filnamn = scan.nextLine();
-        Path filpath = Paths.get("Books.txt");
-        try{
-            File obj = new File("C:\\Users\\Carl.hummerhielm\\Documents\\sjuuuk\\bingbong2.txt");
-            Scanner filläsare = new Scanner(obj);
-            while (filläsare.hasNextLine()){
-                String data = filläsare.nextLine();
-                System.out.println(data);
-            }
-        }catch (FileNotFoundException e){
-            System.out.println("Ett error inträffade");
+
+    private void readFromFile() {
+        /*
+        try {
+            System.out.println("reading");
+
+        } catch (FileNotFoundException e) {
+            System.out.println("file does not exist");
         }
+
+         */
+
+
     }
 
- */
+    //Writes Strings to a file
+    public void writeBook2File(Book book) {
+        try {
+            FileOutputStream fos = new FileOutputStream("Books.txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(book);
 
+            fos.close();
+            oos.close();
+            System.out.println("I have written to the file");
+
+        } catch (IOException e) {
+            System.out.println("FileWriter could no be created");
+        }
+
+
+    }
 }
+
+
+
