@@ -6,10 +6,16 @@ public class Library {
     BookFileManager bfm = new BookFileManager();
     ArrayList<Book> books = new ArrayList<>();
     HashMap<String, Loaner> loaners = new HashMap<>();
+    HashMap<String, Librarian> librarians = new HashMap<>();
 
     public Library() {
-
+        librarians.put("1", new Librarian("Defult", "1"));
     }
+
+    public HashMap<String, Librarian> getLibrarians() {
+        return librarians;
+    }
+
 
     public ArrayList<Book> getBooks() {
         return books;
@@ -69,6 +75,18 @@ public class Library {
             } else {
                 System.out.println("Ogiltigt personnummer.");
             }
+        }
+    }
+
+    public void showLoanersLoans(Scanner scan) {
+        System.out.println("Ange lånarens personnummer: ");
+        String personnummer = scan.nextLine();
+        Loaner loaner = loaners.get(personnummer);
+        int num = 1;
+        for (Loan loan : loaner.getLoans()) {
+            Book book = loan.getBook();
+            System.out.println(num + ": " + book);
+            num++;
         }
     }
 

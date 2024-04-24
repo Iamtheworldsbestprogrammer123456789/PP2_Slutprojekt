@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Har jobbat mycket hemma och idag under lektionen. Har ändrat mcyket men sammanfattningsvis har gjort så att man kan logga in som lånare och sen låna och lämna tillbaka böcker.">
+    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Idag har jag gjort så att man bara kan ange personnummer i formatet yyyymmddxxxx och så att datumen är inom rimliga ramar. Jag har också fixat så att menyn ser bra ut.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Books.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Books.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Librarian.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LibraryUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +86,7 @@
       <workItem from="1710145999188" duration="10299000" />
       <workItem from="1711351824427" duration="841000" />
       <workItem from="1711352762542" duration="24477000" />
-      <workItem from="1713174367186" duration="26293000" />
+      <workItem from="1713174367186" duration="33271000" />
     </task>
     <task id="LOCAL-00001" summary="La till klasserna kopplat till mitt klassdiagram">
       <option name="closed" value="true" />
@@ -139,11 +136,30 @@
       <option name="project" value="LOCAL" />
       <updated>1713351821232</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Idag har jag gjort så att man bara kan ange personnummer i formatet yyyymmddxxxx och så att datumen är inom rimliga ramar. Jag har också fixat så att menyn ser bra ut.">
+      <option name="closed" value="true" />
+      <created>1713771732253</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713771732253</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="La till klasserna kopplat till mitt klassdiagram" />
@@ -152,6 +168,7 @@
     <MESSAGE value="Idag har jag utvecklar programmet mycket. Jag har gjort klart loaner klassen och loan så att det nu går att låna och lämna tillbaka en bok. Sen har jag också börjat på LiberaryUserInterface så att det finns något att interegera med som loaner" />
     <MESSAGE value="Idag har jag jobbat mycket på LibraryUserInterface och jag har fixat så att man kan logga in som loaner där jag också har ändrat arraylisten som alla loaners sparas i." />
     <MESSAGE value="Har jobbat mycket hemma och idag under lektionen. Har ändrat mcyket men sammanfattningsvis har gjort så att man kan logga in som lånare och sen låna och lämna tillbaka böcker." />
-    <option name="LAST_COMMIT_MESSAGE" value="Har jobbat mycket hemma och idag under lektionen. Har ändrat mcyket men sammanfattningsvis har gjort så att man kan logga in som lånare och sen låna och lämna tillbaka böcker." />
+    <MESSAGE value="Idag har jag gjort så att man bara kan ange personnummer i formatet yyyymmddxxxx och så att datumen är inom rimliga ramar. Jag har också fixat så att menyn ser bra ut." />
+    <option name="LAST_COMMIT_MESSAGE" value="Idag har jag gjort så att man bara kan ange personnummer i formatet yyyymmddxxxx och så att datumen är inom rimliga ramar. Jag har också fixat så att menyn ser bra ut." />
   </component>
 </project>

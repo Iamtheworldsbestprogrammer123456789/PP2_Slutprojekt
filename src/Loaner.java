@@ -59,6 +59,17 @@ public class Loaner extends User {
         }
     }
 
+    private void removeLoaner(Scanner scan, Library library) {
+        System.out.println("Ange lånarens personnummer: ");
+        String personnummer = scan.nextLine();
+        if (library.getLoaners().containsKey(personnummer)) {
+            library.getLoaners().remove(personnummer);
+            System.out.println("Lånarens konto har nu tagits bort");
+        } else {
+            System.out.println("Ingen lånare med personnummret " + personnummer + " hittades.");
+        }
+    }
+
     public ArrayList<Loan> getLoans() {
         return loans;
     }

@@ -4,6 +4,6 @@ public class Main {
         LibraryUserInterface vetintevadjagskakalladenhär = new LibraryUserInterface(library);
         library.generateBooks();
         library.generateLoaners();
-        vetintevadjagskakalladenhär.Start();
+        vetintevadjagskakalladenhär.start();
     }
 }
