@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class LibraryUserInterface {
     //Gör en instans av liberary och den nuvarande inloggade lånaren
     private Library library;
-    private Loaner currentUser;
+    private Loaner currentLoaner;
+    private Librarian currentLibrarian;
+
     static Scanner scan = new Scanner(System.in);
 
     public LibraryUserInterface(Library library) {
@@ -23,7 +25,7 @@ public class LibraryUserInterface {
                     logInLoaner();
                     break;
                 case 2:
-                    library.createUser();
+                    library.createLoaner();
                     startOptionsWindow();
                     break;
                 case 3:
@@ -57,13 +59,13 @@ public class LibraryUserInterface {
                     loanBook();
                     break;
                 case 3:
-                    currentUser.printLoanedBooks();
+                    currentLoaner.printLoanedBooks();
                     break;
                 case 4:
-                    currentUser.returnBook(currentUser, scan);
+                    currentLoaner.returnBook(currentLoaner, scan);
                     break;
                 case 5:
-                    currentUser = null;
+                    currentLoaner = null;
                     startOptionsWindow();
                     System.out.println("Hejdå!");
                     return;
@@ -83,13 +85,17 @@ public class LibraryUserInterface {
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
-                    
+                    removeLoaner();
                     break;
                 case 2:
                     library.showLoanersLoans(scan);
                     break;
                 case 3:
-                    currentUser = null;
+                    library.createLibrarian();
+                    librarianOptionsWindow();
+                    break;
+                case 4:
+                    currentLibrarian = null;
                     startOptionsWindow();
                     System.out.println("Hejdå!");
                     return;
@@ -114,7 +120,7 @@ public class LibraryUserInterface {
 
     public void loanerOptionsWindow() {
         System.out.println("____________________________________________");
-        System.out.print("|  Inloggad: " + currentUser.getName());
+        System.out.print("|  Inloggad: " + currentLoaner.getName());
         fillInBlank();
         System.out.println("|");
         System.out.println("|   1. Se alla böcker                       |");
@@ -127,20 +133,28 @@ public class LibraryUserInterface {
 
     public void librarianOptionsWindow() {
         System.out.println("____________________________________________");
-        System.out.print("|  Inloggad: " + currentUser.getName());
+        System.out.print("|  Inloggad: " + currentLibrarian.getName());
         fillInBlank();
         System.out.println("|");
         System.out.println("|   1. Ta bort ett lånar konto              |");
         System.out.println("|   2. Visa en lånares lånade böcker        |");
-        System.out.println("|   3. Logga ut                             |");
+        System.out.println("|   3. Lägg till en anställd i systemet     |");
+        System.out.println("|   4. Logga ut                             |");
         System.out.println("|___________________________________________|");
     }
 
     //Denna metod tar in länden på användarens namn printar sedan ett viss antal mellanslag så att menyn ser bra ut
     public void fillInBlank() {
-        int numb = 31 - currentUser.getName().length();
-        for (int i = 0; i < numb; i++) {
-            System.out.print(" ");
+        if (currentLoaner != null) {
+            int numb = 31 - currentLoaner.getName().length();
+            for (int i = 0; i < numb; i++) {
+                System.out.print(" ");
+            }
+        } else {
+            int numb = 31 - currentLibrarian.getName().length();
+            for (int i = 0; i < numb; i++) {
+                System.out.print(" ");
+            }
         }
     }
 
@@ -151,7 +165,7 @@ public class LibraryUserInterface {
                 System.out.print("Ange ditt personnummer: ");
                 String personnummer = scan.nextLine();
                 if (library.getLoaners().containsKey(personnummer)) {
-                    currentUser = library.getLoaners().get(personnummer);
+                    currentLoaner = library.getLoaners().get(personnummer);
                     loanerMenu();
                     break;
                 } else {
@@ -174,7 +188,7 @@ public class LibraryUserInterface {
                 System.out.print("Ange ditt personal ID: ");
                 String id = scan.nextLine();
                 if (library.getLibrarians().containsKey(id)) {
-                    currentUser = library.getLoaners().get(id);
+                    currentLibrarian = library.getLibrarians().get(id);
                     librarianMenu();
                     break;
                 } else {
@@ -199,7 +213,7 @@ public class LibraryUserInterface {
             scan.nextLine();
             scan.nextLine();
 
-            if (currentUser == null) {
+            if (currentLoaner == null) {
                 startOptionsWindow();
             } else {
                 loanerOptionsWindow();
@@ -207,20 +221,26 @@ public class LibraryUserInterface {
         }
     }
 
-    private void loanBook() {
+    public void loanBook() {
         browseBooks(false);
-        System.out.println("Ange titel på boken du vill låna: ");
+        System.out.println("Ange titeln på boken som du vill låna: ");
         scan.nextLine();
-        String titel = scan.nextLine();
+        String title = scan.nextLine();
         loanerOptionsWindow();
-        for (Book book : library.getBooks()) {
-            if (book.getTITLE().equalsIgnoreCase(titel)) {
-                if (book.getLoaned()) {
-                    System.out.println("Boken är lånad.");
-                } else {
-                    currentUser.loanBook(book);
-                }
-            }
+        currentLoaner.loanBook(title, library);
+
+    }
+
+    private void removeLoaner() {
+        System.out.println("Ange lånarens personnummer: ");
+        scan.nextLine();
+        String personnummer = scan.nextLine();
+        librarianOptionsWindow();
+        if (library.getLoaners().containsKey(personnummer)) {
+            library.getLoaners().remove(personnummer);
+            System.out.println("Lånarens konto har nu tagits bort");
+        } else {
+            System.out.println("Ingen lånare med personnummret " + personnummer + " hittades.");
         }
     }
 

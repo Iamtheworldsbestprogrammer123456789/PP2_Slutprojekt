@@ -1,5 +1,7 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Library {
@@ -61,7 +63,7 @@ public class Library {
         return false;
     }
 
-    public void createUser() {
+    public void createLoaner() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Namn: ");
         String namn = scan.nextLine();
@@ -78,15 +80,43 @@ public class Library {
         }
     }
 
+    public void createLibrarian() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Namn: ");
+        String namn = scan.nextLine();
+        String id = idGenerator();
+        System.out.println(namn + ", personal id: " + id);
+        System.out.println("Tryck enter för att bekräfta");
+        scan.nextLine();
+        librarians.put(id, new Librarian(namn, id));
+        System.out.println("Anställd registrerad");
+        System.out.println("Namn: " + namn);
+        System.out.println("ID: " + id);
+        System.out.println("Tryck enter för att gå tillbaka till menyn.");
+        scan.nextLine();
+    }
+
+    //Genererar ett random 9 siffrigt nummer som används till personal id
+    private String idGenerator() {
+        Random random = new Random();
+        int num = random.nextInt(999999999 - 100000000 + 1) + 100000000;
+        return String.valueOf(num);
+    }
+
     public void showLoanersLoans(Scanner scan) {
         System.out.println("Ange lånarens personnummer: ");
+        scan.nextLine();
         String personnummer = scan.nextLine();
         Loaner loaner = loaners.get(personnummer);
-        int num = 1;
-        for (Loan loan : loaner.getLoans()) {
-            Book book = loan.getBook();
-            System.out.println(num + ": " + book);
-            num++;
+        if (!loaner.getLoans().isEmpty()) {
+            int num = 1;
+            for (Loan loan : loaner.getLoans()) {
+                Book book = loan.getBook();
+                System.out.println(num + ": " + book);
+                num++;
+            }
+        } else {
+            System.out.println("Lånaren har inga lånade böcker.");
         }
     }
 

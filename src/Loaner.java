@@ -8,12 +8,11 @@ public class Loaner extends User {
         super(name, id);
     }
 
-    // todo: lägg till addloans
-    public void createLoaner() {
-
+    public ArrayList<Loan> getLoans() {
+        return loans;
     }
 
-    //Printar alla loanerns lån
+    //Printar alla lånarens lån
     public void printLoanedBooks() {
         if (loans.isEmpty()) {
             System.out.println("Du har inga lånade böcker");
@@ -29,15 +28,27 @@ public class Loaner extends User {
     }
 
     //Lånar en specifik bok om den inte är lånad
-    public void loanBook(Book book) {
-        Loan loan = new Loan(book, this);
-        loans.add(loan);
-        book.setLoaned(true);
-        System.out.println("Du har nu lånat " + book.getTITLE());
+    public boolean loanBook(String title, Library library) {
+        for (Book book : library.getBooks()) {
+            if (book.getTITLE().equalsIgnoreCase(title)) {
+                if (book.getLoaned()) {
+                    System.out.println("Boken är redan lånad.");
+                    return false;
+                } else {
+                    Loan loan = new Loan(book, this);
+                    loans.add(loan);
+                    book.setLoaned(true);
+                    System.out.println("Du har lånat " + book.getTITLE());
+                    return true;
+                }
+            }
+        }
+        System.out.println("Boken hittades inte.");
+        return false;
     }
 
     //Lämnar tillbaka en bok
-    public void returnBook(Loaner loaner, Scanner scan) {
+    protected void returnBook(Loaner loaner, Scanner scan) {
         if (!loaner.getLoans().isEmpty()) {
             loaner.printLoanedBooks();
             System.out.println("Skriv titeln på boken som du vill Lämna tillbaka:");
@@ -50,7 +61,6 @@ public class Loaner extends User {
                     loaner.getLoans().remove(loan);
                     loan.getBook().setLoaned(false);
                     System.out.println(loan.getBook().getTITLE() + "har lämnats tillbaka");
-                    i--;
                     break;
                 }
             }
@@ -59,18 +69,4 @@ public class Loaner extends User {
         }
     }
 
-    private void removeLoaner(Scanner scan, Library library) {
-        System.out.println("Ange lånarens personnummer: ");
-        String personnummer = scan.nextLine();
-        if (library.getLoaners().containsKey(personnummer)) {
-            library.getLoaners().remove(personnummer);
-            System.out.println("Lånarens konto har nu tagits bort");
-        } else {
-            System.out.println("Ingen lånare med personnummret " + personnummer + " hittades.");
-        }
-    }
-
-    public ArrayList<Loan> getLoans() {
-        return loans;
-    }
 }
