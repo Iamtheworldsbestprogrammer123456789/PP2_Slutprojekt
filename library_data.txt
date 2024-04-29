@@ -1,0 +1,31 @@
+Böcker:
+Ljusets rike,Axel Västerberg,Fantasy-sektionen: hylla U1
+Hemligheternas kammare,Ebba Åberg,Skräck-sektionen: hylla V4
+Morgonbris,Ludvig Östlund,Roman-sektionen: hylla W2
+Stjärnfall,Saga Öberg,Science Fiction-sektionen: hylla X7
+
+Lånare:
+Irene,202204160009
+
+Jack,202204160010
+
+Bob,192204160002
+
+David,202204160004
+
+Catherine,202204160003
+
+Alice,202204160001
+
+Henry,202204160008
+
+Grace,202204160007
+
+Carl Hummerhielm,200506263333
+
+Frank,202204160006
+
+Eva,202204160005
+
+
+Bibliotekarier:

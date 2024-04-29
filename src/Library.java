@@ -6,12 +6,20 @@ import java.util.Scanner;
 
 public class Library {
     BookFileManager bfm = new BookFileManager();
+    //Listan med alla böcker
     ArrayList<Book> books = new ArrayList<>();
+    //Listan med alla lånare
     HashMap<String, Loaner> loaners = new HashMap<>();
+    //Listan med alla bibliotekarier
     HashMap<String, Librarian> librarians = new HashMap<>();
 
     public Library() {
+        //Skapar en defult bibliotekarie
+        /*
         librarians.put("1", new Librarian("Defult", "1"));
+
+         */
+        BookFileManager.loadData(books, loaners, librarians);
     }
 
     public HashMap<String, Librarian> getLibrarians() {
@@ -51,6 +59,7 @@ public class Library {
         loaners.put("202204160010", new Loaner("Jack", "202204160010"));
     }
 
+    //Tar ett personumer i formatet yyyymmddxxxx. Kollar så att längden är korrekt och sedan att datumet är rilmligt.
     public Boolean checkPersonnummer(String personnummer) {
         if (personnummer.length() == 12) {
             int year = Integer.parseInt(personnummer.substring(0, 4));
@@ -63,6 +72,7 @@ public class Library {
         return false;
     }
 
+    //Skapar ett konto för en lånare
     public void createLoaner() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Namn: ");
@@ -80,20 +90,28 @@ public class Library {
         }
     }
 
+    //Skapar ett konto för en biblotikarie
     public void createLibrarian() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Namn: ");
         String namn = scan.nextLine();
         String id = idGenerator();
-        System.out.println(namn + ", personal id: " + id);
-        System.out.println("Tryck enter för att bekräfta");
-        scan.nextLine();
-        librarians.put(id, new Librarian(namn, id));
-        System.out.println("Anställd registrerad");
-        System.out.println("Namn: " + namn);
-        System.out.println("ID: " + id);
-        System.out.println("Tryck enter för att gå tillbaka till menyn.");
-        scan.nextLine();
+        while (true) {
+            //Kollar så att det random genererade id inte redan finns
+            if (!librarians.containsKey(id)) {
+                librarians.put(id, new Librarian(namn, id));
+                System.out.println("\nAnställd registrerad.");
+                System.out.println("Namn: " + namn);
+                System.out.println("ID: " + id);
+                System.out.print("Tryck enter för att gå tillbaka till menyn.");
+                scan.nextLine();
+                break;
+            }
+            //Om det redan finns ett konto med samma id genereras ett nytt
+            else {
+                id = idGenerator();
+            }
+        }
     }
 
     //Genererar ett random 9 siffrigt nummer som används till personal id
@@ -103,6 +121,7 @@ public class Library {
         return String.valueOf(num);
     }
 
+    //Denna metod visar en specifik lånares lån
     public void showLoanersLoans(Scanner scan) {
         System.out.println("Ange lånarens personnummer: ");
         scan.nextLine();

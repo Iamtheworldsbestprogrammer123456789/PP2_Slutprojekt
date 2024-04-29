@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class LibraryUserInterface {
-    //Gör en instans av liberary och den nuvarande inloggade lånaren
+    //Gör en instans av liberary och den nuvarande inloggade lånaren eller bibliotekarien
     private Library library;
     private Loaner currentLoaner;
     private Librarian currentLibrarian;
@@ -16,26 +16,33 @@ public class LibraryUserInterface {
     //TODO: Fixa try_catch_int
     public void start() {
         System.out.println("Välkommen till NTIs bibliotek!");
+        //Printar den allmänna valmenyn
         startOptionsWindow();
         while (true) {
             System.out.print("Välj ett alternativ: ");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
+                    //Logga in som en lånare
                     logInLoaner();
                     break;
                 case 2:
+                    //Skapa ett lånar konto
                     library.createLoaner();
                     startOptionsWindow();
                     break;
                 case 3:
+                    //Kollar på alla böcker
                     browseBooks(true);
                     break;
                 case 4:
+                    //Logga in som en bibliotekarie
                     logInLibrarian();
                     break;
                 case 5:
+                    //Stänger ner programet
                     System.out.println("Hejdå!");
+                    BookFileManager.writeData(library.books, library.loaners, library.librarians);
                     return;
                 default:
                     startOptionsWindow();
@@ -44,27 +51,32 @@ public class LibraryUserInterface {
         }
     }
 
-
+    //Lånarens valmeny
     private void loanerMenu() {
-
+        //Printar valmenyn
         loanerOptionsWindow();
         while (true) {
             System.out.print("Välj ett alternativ:");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
+                    //Kolla på alla böcker
                     browseBooks(true);
                     break;
                 case 2:
+                    //Låna en bok
                     loanBook();
                     break;
                 case 3:
+                    //printar lånade böcker
                     currentLoaner.printLoanedBooks();
                     break;
                 case 4:
+                    //Lämnar tillbaka en bok
                     currentLoaner.returnBook(currentLoaner, scan);
                     break;
                 case 5:
+                    //Loggar ut
                     currentLoaner = null;
                     startOptionsWindow();
                     System.out.println("Hejdå!");
@@ -77,24 +89,30 @@ public class LibraryUserInterface {
 
     }
 
+    //Biblotikariens valmeny
     private void librarianMenu() {
 
+        //Printar valmenyn
         librarianOptionsWindow();
         while (true) {
             System.out.print("Välj ett alternativ:");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
+                    //Tar bort en lånares konto
                     removeLoaner();
                     break;
                 case 2:
+                    //Visar en lånares lån
                     library.showLoanersLoans(scan);
                     break;
                 case 3:
+                    //Skapar ett konto för en bibliotekarie
                     library.createLibrarian();
                     librarianOptionsWindow();
                     break;
                 case 4:
+                    //Loggar ut
                     currentLibrarian = null;
                     startOptionsWindow();
                     System.out.println("Hejdå!");
@@ -107,6 +125,7 @@ public class LibraryUserInterface {
 
     }
 
+    //Det allmänna valfönstret som alla ser innna dem loggar in
     public static void startOptionsWindow() {
         System.out.println("____________________________________________");
         System.out.println("|        STARTMENY NTIs  BIBLIOTEK          |");
@@ -118,6 +137,7 @@ public class LibraryUserInterface {
         System.out.println("|___________________________________________|");
     }
 
+    //Val fönstert som en lånare ser när dem loggar in
     public void loanerOptionsWindow() {
         System.out.println("____________________________________________");
         System.out.print("|  Inloggad: " + currentLoaner.getName());
@@ -131,6 +151,7 @@ public class LibraryUserInterface {
         System.out.println("|___________________________________________|");
     }
 
+    //Val fönstert som en biblotikare ser när dem loggar in
     public void librarianOptionsWindow() {
         System.out.println("____________________________________________");
         System.out.print("|  Inloggad: " + currentLibrarian.getName());
@@ -203,6 +224,7 @@ public class LibraryUserInterface {
         }
     }
 
+    //Printar alla böcker
     private void browseBooks(boolean show) {
         System.out.println("Böcker:");
         for (Book book : library.getBooks()) {
@@ -213,6 +235,7 @@ public class LibraryUserInterface {
             scan.nextLine();
             scan.nextLine();
 
+            //Om det är en lånare som är inloggad så printas lånarens option window.
             if (currentLoaner == null) {
                 startOptionsWindow();
             } else {
@@ -221,6 +244,7 @@ public class LibraryUserInterface {
         }
     }
 
+    //Denna metod används för att låna en bok
     public void loanBook() {
         browseBooks(false);
         System.out.println("Ange titeln på boken som du vill låna: ");
@@ -231,19 +255,40 @@ public class LibraryUserInterface {
 
     }
 
+    //Tar bort en lånares konto.
     private void removeLoaner() {
         System.out.println("Ange lånarens personnummer: ");
         scan.nextLine();
         String personnummer = scan.nextLine();
-        librarianOptionsWindow();
-        if (library.getLoaners().containsKey(personnummer)) {
-            library.getLoaners().remove(personnummer);
-            System.out.println("Lånarens konto har nu tagits bort");
-        } else {
-            System.out.println("Ingen lånare med personnummret " + personnummer + " hittades.");
+        while (true) {
+            if (library.getLoaners().containsKey(personnummer)) {
+                System.out.println("Är du säker på att du vill ta bort lånarens Konto?");
+                System.out.println("Skriv ja/nej");
+                System.out.print(": ");
+                String val = scan.nextLine();
+                if (val.equalsIgnoreCase("ja")) {
+                    library.getLoaners().remove(personnummer);
+                    librarianOptionsWindow();
+                    System.out.println("Lånarens konto har nu tagits bort");
+                    break;
+                } else if (val.equalsIgnoreCase("nej")) {
+                    librarianOptionsWindow();
+                    System.out.println("Lånarens konto har inte tagits bort");
+                    break;
+                } else {
+                    System.out.println("Ogiltig input!\n");
+                }
+            } else {
+                librarianOptionsWindow();
+                System.out.println("Ingen lånare med personnummret " + personnummer + " hittades.");
+                break;
+            }
+
         }
     }
 
+    //Används för att kolla så att inputen är valid och att programmet inte crashar. Om det är invalid så får
+    //Användaren försöka igen.
     public static int try_catch_int() {
         int tal = 0;
 

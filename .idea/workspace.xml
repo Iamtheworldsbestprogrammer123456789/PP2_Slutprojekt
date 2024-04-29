@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Idag har jag jobbat med librarian classen. Jag ska också försöka att förbättra inkapslingen i hela mitt program. Jag ska också börja jobba på att kommentera min kod">
+    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Idag har jag fixat så att programet är mer strukturerat. Jag har också lagt samt fixat olika metoder som en biblotikarie kan utföra.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LibraryUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Loaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loaner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +85,7 @@
       <workItem from="1710145999188" duration="10299000" />
       <workItem from="1711351824427" duration="841000" />
       <workItem from="1711352762542" duration="24477000" />
-      <workItem from="1713174367186" duration="41283000" />
+      <workItem from="1713174367186" duration="50515000" />
     </task>
     <task id="LOCAL-00001" summary="La till klasserna kopplat till mitt klassdiagram">
       <option name="closed" value="true" />
@@ -150,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713949878339</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Idag har jag fixat så att programet är mer strukturerat. Jag har också lagt samt fixat olika metoder som en biblotikarie kan utföra.">
+      <option name="closed" value="true" />
+      <created>1714052601174</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714052601174</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +185,7 @@
     <MESSAGE value="Har jobbat mycket hemma och idag under lektionen. Har ändrat mcyket men sammanfattningsvis har gjort så att man kan logga in som lånare och sen låna och lämna tillbaka böcker." />
     <MESSAGE value="Idag har jag gjort så att man bara kan ange personnummer i formatet yyyymmddxxxx och så att datumen är inom rimliga ramar. Jag har också fixat så att menyn ser bra ut." />
     <MESSAGE value="Idag har jag jobbat med librarian classen. Jag ska också försöka att förbättra inkapslingen i hela mitt program. Jag ska också börja jobba på att kommentera min kod" />
-    <option name="LAST_COMMIT_MESSAGE" value="Idag har jag jobbat med librarian classen. Jag ska också försöka att förbättra inkapslingen i hela mitt program. Jag ska också börja jobba på att kommentera min kod" />
+    <MESSAGE value="Idag har jag fixat så att programet är mer strukturerat. Jag har också lagt samt fixat olika metoder som en biblotikarie kan utföra." />
+    <option name="LAST_COMMIT_MESSAGE" value="Idag har jag fixat så att programet är mer strukturerat. Jag har också lagt samt fixat olika metoder som en biblotikarie kan utföra." />
   </component>
 </project>
