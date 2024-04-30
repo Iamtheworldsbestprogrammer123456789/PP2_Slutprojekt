@@ -28,40 +28,37 @@ public class Loaner extends User {
     }
 
     //Lånar en specifik bok om den inte är lånad
-    public boolean loanBook(String title, Library library) {
+    public void loanBook(String title, Library library) {
         for (Book book : library.getBooks()) {
             if (book.getTITLE().equalsIgnoreCase(title)) {
                 if (book.getLoaned()) {
                     System.out.println("Boken är redan lånad.");
-                    return false;
+                    return;
                 } else {
                     Loan loan = new Loan(book, this);
                     loans.add(loan);
                     book.setLoaned(true);
                     System.out.println("Du har lånat " + book.getTITLE());
-                    return true;
+                    return;
                 }
             }
         }
         System.out.println("Boken hittades inte.");
-        return false;
     }
 
     //Lämnar tillbaka en bok
-    protected void returnBook(Loaner loaner, Scanner scan) {
+    protected void returnBook(String title, Loaner loaner) {
+        ArrayList<Loan> loans = loaner.getLoans();
         if (!loaner.getLoans().isEmpty()) {
-            loaner.printLoanedBooks();
-            System.out.println("Skriv titeln på boken som du vill Lämna tillbaka:");
-            scan.nextLine();
-            String title = scan.nextLine();
-            ArrayList<Loan> loans = loaner.getLoans();
             for (int i = 0; i < loans.size(); i++) {
                 Loan loan = loans.get(i);
-                if (loan.getBook().getTITLE().equalsIgnoreCase(title)) {
+                if (loan.getBook() != null && loan.getBook().getTITLE().equalsIgnoreCase(title)) {
                     loaner.getLoans().remove(loan);
                     loan.getBook().setLoaned(false);
                     System.out.println(loan.getBook().getTITLE() + "har lämnats tillbaka");
                     break;
+                } else {
+                    System.out.println("Hittade inte boken du angav");
                 }
             }
         } else {

@@ -4,13 +4,13 @@ public class Book implements Serializable {
     private final String TITLE;
     private final String AUTHOR;
     private final String LOCATION;
-    private Boolean loaned = false;
-    //Lägg till borrowed
+    private Boolean loaned;
 
-    public Book(String title, String AUTHOR, String LOCATION) {
+    public Book(String title, String AUTHOR, String LOCATION, boolean loaned) {
         this.TITLE = title;
         this.AUTHOR = AUTHOR;
         this.LOCATION = LOCATION;
+        this.loaned = loaned;
     }
 
     public String getTITLE() {

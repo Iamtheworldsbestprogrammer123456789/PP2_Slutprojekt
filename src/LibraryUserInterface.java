@@ -42,7 +42,7 @@ public class LibraryUserInterface {
                 case 5:
                     //Stänger ner programet
                     System.out.println("Hejdå!");
-                    BookFileManager.writeData(library.books, library.loaners, library.librarians);
+                    LibraryFileManager.writeData(library.books, library.loaners, library.librarians);
                     return;
                 default:
                     startOptionsWindow();
@@ -73,7 +73,7 @@ public class LibraryUserInterface {
                     break;
                 case 4:
                     //Lämnar tillbaka en bok
-                    currentLoaner.returnBook(currentLoaner, scan);
+                    returnBook();
                     break;
                 case 5:
                     //Loggar ut
@@ -253,6 +253,18 @@ public class LibraryUserInterface {
         loanerOptionsWindow();
         currentLoaner.loanBook(title, library);
 
+    }
+
+    private void returnBook() {
+        if (!currentLoaner.getLoans().isEmpty()) {
+            currentLoaner.printLoanedBooks();
+            System.out.println("Skriv titeln på boken som du vill Lämna tillbaka");
+            System.out.print(": ");
+            scan.nextLine();
+            String title = scan.nextLine();
+            loanerOptionsWindow();
+            currentLoaner.returnBook(title, currentLoaner);
+        }
     }
 
     //Tar bort en lånares konto.

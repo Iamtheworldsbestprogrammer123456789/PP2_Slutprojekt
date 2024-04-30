@@ -16,11 +16,7 @@ public class Loan {
     }
 
     public void setBook(Book book) {
-        if (!book.getLoaned()) {
-            this.book = book;
-        } else {
-            System.out.println("Boken är lånad");
-        }
+        this.book = book;
     }
 
     public void setLoaner(Loaner loaner) {

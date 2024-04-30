@@ -1,8 +1,8 @@
 Böcker:
-Ljusets rike,Axel Västerberg,Fantasy-sektionen: hylla U1
-Hemligheternas kammare,Ebba Åberg,Skräck-sektionen: hylla V4
-Morgonbris,Ludvig Östlund,Roman-sektionen: hylla W2
-Stjärnfall,Saga Öberg,Science Fiction-sektionen: hylla X7
+Ljusets rike,Axel Västerberg,Fantasy-sektionen: hylla U1,false
+Hemligheternas kammare,Ebba Åberg,Skräck-sektionen: hylla V4,false
+Morgonbris,Ludvig Östlund,Roman-sektionen: hylla W2,false
+Stjärnfall,Saga Öberg,Science Fiction-sektionen: hylla X7,false
 
 Lånare:
 Irene,202204160009
@@ -29,3 +29,5 @@ Eva,202204160005
 
 
 Bibliotekarier:
+Defult,1
+Magnus,146573293

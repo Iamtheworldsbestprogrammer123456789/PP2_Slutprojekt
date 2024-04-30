@@ -1,11 +1,10 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Library {
-    BookFileManager bfm = new BookFileManager();
+    LibraryFileManager bfm = new LibraryFileManager();
     //Listan med alla böcker
     ArrayList<Book> books = new ArrayList<>();
     //Listan med alla lånare
@@ -17,9 +16,8 @@ public class Library {
         //Skapar en defult bibliotekarie
         /*
         librarians.put("1", new Librarian("Defult", "1"));
-
-         */
-        BookFileManager.loadData(books, loaners, librarians);
+        */
+        LibraryFileManager.loadData(books, loaners, librarians);
     }
 
     public HashMap<String, Librarian> getLibrarians() {
@@ -40,10 +38,10 @@ public class Library {
     }
 
     public void generateBooks() {
-        this.books.add(new Book("Ljusets rike", "Axel Västerberg", "Fantasy-sektionen, hylla U1"));
-        this.books.add(new Book("Hemligheternas kammare", "Ebba Åberg", "Skräck-sektionen, hylla V4"));
-        this.books.add(new Book("Morgonbris", "Ludvig Östlund", "Roman-sektionen, hylla W2"));
-        this.books.add(new Book("Stjärnfall", "Saga Öberg", "Science Fiction-sektionen, hylla X7"));
+        this.books.add(new Book("Ljusets rike", "Axel Västerberg", "Fantasy-sektionen, hylla U1", false));
+        this.books.add(new Book("Hemligheternas kammare", "Ebba Åberg", "Skräck-sektionen, hylla V4", false));
+        this.books.add(new Book("Morgonbris", "Ludvig Östlund", "Roman-sektionen, hylla W2", false));
+        this.books.add(new Book("Stjärnfall", "Saga Öberg", "Science Fiction-sektionen, hylla X7", false));
     }
 
     public void generateLoaners() {
