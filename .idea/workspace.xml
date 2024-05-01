@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Har gjort mycket idag. Har gjort klart så att BookFileManager nu kan läsa och skriva till och från programmet. Jag är inte helt klart men gör denn commit för att jag ska göra lite ändringar i filen.">
+    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Nu är jag typ helt klar med programmet. LibraryFileManager funkar nu utan problem och resten av programmet fungerar också. Hade problem med att ladda en lånares lån till programmet men nu är det fixat. Det sista jag ska göra är bara att kolla genom allt extra nogrant och testa programmet fullt ut">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/library_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BookFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryFileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hunddagis/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hunddagis/Hunddagis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hunddagis/Owner.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LibraryFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LibraryUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryUserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loaner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +88,7 @@
       <workItem from="1710145999188" duration="10299000" />
       <workItem from="1711351824427" duration="841000" />
       <workItem from="1711352762542" duration="24477000" />
-      <workItem from="1713174367186" duration="60887000" />
+      <workItem from="1713174367186" duration="64027000" />
     </task>
     <task id="LOCAL-00001" summary="La till klasserna kopplat till mitt klassdiagram">
       <option name="closed" value="true" />
@@ -174,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714395614634</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Nu är jag typ helt klar med programmet. LibraryFileManager funkar nu utan problem och resten av programmet fungerar också. Hade problem med att ladda en lånares lån till programmet men nu är det fixat. Det sista jag ska göra är bara att kolla genom allt extra nogrant och testa programmet fullt ut">
+      <option name="closed" value="true" />
+      <created>1714475044545</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714475044545</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +206,7 @@
     <MESSAGE value="Idag har jag jobbat med librarian classen. Jag ska också försöka att förbättra inkapslingen i hela mitt program. Jag ska också börja jobba på att kommentera min kod" />
     <MESSAGE value="Idag har jag fixat så att programet är mer strukturerat. Jag har också lagt samt fixat olika metoder som en biblotikarie kan utföra." />
     <MESSAGE value="Har gjort mycket idag. Har gjort klart så att BookFileManager nu kan läsa och skriva till och från programmet. Jag är inte helt klart men gör denn commit för att jag ska göra lite ändringar i filen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Har gjort mycket idag. Har gjort klart så att BookFileManager nu kan läsa och skriva till och från programmet. Jag är inte helt klart men gör denn commit för att jag ska göra lite ändringar i filen." />
+    <MESSAGE value="Nu är jag typ helt klar med programmet. LibraryFileManager funkar nu utan problem och resten av programmet fungerar också. Hade problem med att ladda en lånares lån till programmet men nu är det fixat. Det sista jag ska göra är bara att kolla genom allt extra nogrant och testa programmet fullt ut" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nu är jag typ helt klar med programmet. LibraryFileManager funkar nu utan problem och resten av programmet fungerar också. Hade problem med att ladda en lånares lån till programmet men nu är det fixat. Det sista jag ska göra är bara att kolla genom allt extra nogrant och testa programmet fullt ut" />
   </component>
 </project>

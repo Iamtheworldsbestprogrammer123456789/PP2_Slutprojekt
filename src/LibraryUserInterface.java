@@ -179,6 +179,7 @@ public class LibraryUserInterface {
         }
     }
 
+    //Metoden loggar in en lånare till sitt konto
     private void logInLoaner() {
         if (!library.getLoaners().isEmpty()) {
             scan.nextLine();
@@ -202,6 +203,7 @@ public class LibraryUserInterface {
 
     }
 
+    //Metoden loggar in en bibliotekarie till sitt konto
     private void logInLibrarian() {
         if (!library.getLibrarians().isEmpty()) {
             scan.nextLine();
@@ -235,7 +237,7 @@ public class LibraryUserInterface {
             scan.nextLine();
             scan.nextLine();
 
-            //Om det är en lånare som är inloggad så printas lånarens option window.
+            //Om det är en lånare som är inloggad så printas lånarens option window efter.
             if (currentLoaner == null) {
                 startOptionsWindow();
             } else {
@@ -247,7 +249,8 @@ public class LibraryUserInterface {
     //Denna metod används för att låna en bok
     public void loanBook() {
         browseBooks(false);
-        System.out.println("Ange titeln på boken som du vill låna: ");
+        System.out.println("\nAnge titeln på boken som du vill låna");
+        System.out.print(": ");
         scan.nextLine();
         String title = scan.nextLine();
         loanerOptionsWindow();
@@ -255,10 +258,11 @@ public class LibraryUserInterface {
 
     }
 
+    //Lämnar tillbaka en bok som lånaren har lånat
     private void returnBook() {
         if (!currentLoaner.getLoans().isEmpty()) {
             currentLoaner.printLoanedBooks();
-            System.out.println("Skriv titeln på boken som du vill Lämna tillbaka");
+            System.out.println("\nSkriv titeln på boken som du vill Lämna tillbaka");
             System.out.print(": ");
             scan.nextLine();
             String title = scan.nextLine();
@@ -269,7 +273,8 @@ public class LibraryUserInterface {
 
     //Tar bort en lånares konto.
     private void removeLoaner() {
-        System.out.println("Ange lånarens personnummer: ");
+        System.out.println("Ange lånarens personnummer");
+        System.out.print(": ");
         scan.nextLine();
         String personnummer = scan.nextLine();
         while (true) {
@@ -279,6 +284,12 @@ public class LibraryUserInterface {
                 System.out.print(": ");
                 String val = scan.nextLine();
                 if (val.equalsIgnoreCase("ja")) {
+                    Loaner loaner = library.getLoaners().get(personnummer);
+                    // Loopa igenom lånarens lån och lämna tillbaka varje bok
+                    for (Loan loan : loaner.getLoans()) {
+                        loan.getBook().setLoaned(false);
+                    }
+                    //Tar bort lånarens konto
                     library.getLoaners().remove(personnummer);
                     librarianOptionsWindow();
                     System.out.println("Lånarens konto har nu tagits bort");

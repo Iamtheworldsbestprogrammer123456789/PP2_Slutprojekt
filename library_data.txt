@@ -21,8 +21,6 @@ Henry,202204160008
 
 Grace,202204160007
 
-Carl Hummerhielm,200506263333
-
 Frank,202204160006
 
 Eva,202204160005
@@ -30,4 +28,3 @@ Eva,202204160005
 
 Bibliotekarier:
 Defult,1
-Magnus,146573293

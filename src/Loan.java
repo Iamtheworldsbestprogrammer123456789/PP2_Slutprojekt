@@ -1,3 +1,4 @@
+//Ett loan innehåller en bok och en lånare
 public class Loan {
     private Book book;
     private Loaner loaner;

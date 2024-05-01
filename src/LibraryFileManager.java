@@ -104,7 +104,6 @@ public class LibraryFileManager {
                             if (loaned) {
                                 Loan loan = new Loan(book, loaner);
                                 loaner.getLoans().add(loan); // Lägg till lånet till lånarens lista av lån
-                                System.out.println("Loan added!!!");
                             }
                         }
                     }

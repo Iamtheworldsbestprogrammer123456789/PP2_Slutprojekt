@@ -13,7 +13,7 @@ public class Loaner extends User {
     }
 
     //Printar alla lånarens lån
-    public void printLoanedBooks() {
+    protected void printLoanedBooks() {
         if (loans.isEmpty()) {
             System.out.println("Du har inga lånade böcker");
             return;
@@ -28,7 +28,7 @@ public class Loaner extends User {
     }
 
     //Lånar en specifik bok om den inte är lånad
-    public void loanBook(String title, Library library) {
+    protected void loanBook(String title, Library library) {
         for (Book book : library.getBooks()) {
             if (book.getTITLE().equalsIgnoreCase(title)) {
                 if (book.getLoaned()) {
@@ -55,7 +55,7 @@ public class Loaner extends User {
                 if (loan.getBook() != null && loan.getBook().getTITLE().equalsIgnoreCase(title)) {
                     loaner.getLoans().remove(loan);
                     loan.getBook().setLoaned(false);
-                    System.out.println(loan.getBook().getTITLE() + "har lämnats tillbaka");
+                    System.out.println(loan.getBook().getTITLE() + " har lämnats tillbaka");
                     break;
                 } else {
                     System.out.println("Hittade inte boken du angav");
