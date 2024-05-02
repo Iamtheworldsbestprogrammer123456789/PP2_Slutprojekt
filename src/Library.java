@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Library {
-    LibraryFileManager bfm = new LibraryFileManager();
+
     //Listan med alla böcker
     ArrayList<Book> books = new ArrayList<>();
     //Listan med alla lånare
@@ -13,10 +13,6 @@ public class Library {
     HashMap<String, Librarian> librarians = new HashMap<>();
 
     public Library() {
-        //Skapar en defult bibliotekarie
-        /*
-        librarians.put("1", new Librarian("Defult", "1"));
-        */
         LibraryFileManager.loadData(books, loaners, librarians);
     }
 
@@ -33,19 +29,18 @@ public class Library {
         return loaners;
     }
 
-    public void addBook(Book book) {
-        books.add(book);
-    }
-
-    //Tar ett personumer i formatet yyyymmddxxxx. Kollar så att längden är korrekt och sedan att datumet är rilmligt.
+    //Tar ett personumer i formatet yyyymmddxxxx. Kollar så att längden är korrekt och sedan att datumet är rimligt.
     public Boolean checkPersonnummer(String personnummer) {
+        //Kollar så att personnumret är den bestämda längden
         if (personnummer.length() == 12) {
+            //tar ut året från personnumret
             int year = Integer.parseInt(personnummer.substring(0, 4));
+            //Tar ut månaden från personnumret
             int month = Integer.parseInt(personnummer.substring(4, 6));
+            //Tar ut dagen från personnumret
             int day = Integer.parseInt(personnummer.substring(6, 8));
-            if (year >= 1900 && year <= 2024 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
-                return true;
-            }
+            //Kollar så att personnumret är inom rimliga gränser
+            return year >= 1900 && year <= 2024 && month >= 1 && month <= 12 && day >= 1 && day <= 31;
         }
         return false;
     }
@@ -73,6 +68,7 @@ public class Library {
         Scanner scan = new Scanner(System.in);
         System.out.print("Namn: ");
         String namn = scan.nextLine();
+        //Random id
         String id = idGenerator();
         while (true) {
             //Kollar så att det random genererade id inte redan finns
@@ -105,13 +101,16 @@ public class Library {
         scan.nextLine();
         String personnummer = scan.nextLine();
         Loaner loaner = loaners.get(personnummer);
+        //Kollar så att lånaren har lån
         if (!loaner.getLoans().isEmpty()) {
             int num = 1;
+            //Går igenom och printar alla lån
             for (Loan loan : loaner.getLoans()) {
                 Book book = loan.getBook();
                 System.out.println(num + ": " + book);
                 num++;
             }
+            //Om inte lånaren har några lån
         } else {
             System.out.println("Lånaren har inga lånade böcker.");
         }

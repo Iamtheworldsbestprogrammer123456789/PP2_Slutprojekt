@@ -1,3 +1,4 @@
+
 //Ett loan innehåller en bok och en lånare
 public class Loan {
     private Book book;
@@ -12,17 +13,8 @@ public class Loan {
         return book;
     }
 
-    public User getLoaner() {
-        return loaner;
-    }
-
     public void setBook(Book book) {
         this.book = book;
     }
 
-    public void setLoaner(Loaner loaner) {
-        this.loaner = loaner;
-    }
-
-    //Todo: LIV:fix view return date
 }

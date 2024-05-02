@@ -1,6 +1,5 @@
-import java.io.Serializable;
 
-public class Book implements Serializable {
+public class Book {
     private final String TITLE;
     private final String AUTHOR;
     private final String LOCATION;
@@ -33,6 +32,7 @@ public class Book implements Serializable {
         this.loaned = loaned;
     }
 
+    //Används för att printa böcker
     @Override
     public String toString() {
         return "Titel: " + TITLE + ", Författare: " + AUTHOR + ", Plats: " + LOCATION + ", Lånad: " + loaned;

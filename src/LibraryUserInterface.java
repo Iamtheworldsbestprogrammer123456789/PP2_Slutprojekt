@@ -12,14 +12,12 @@ public class LibraryUserInterface {
         this.library = library;
     }
 
-    //TODO: Lägga till kommentarer som förklarar koden
-    //TODO: Fixa try_catch_int
     public void start() {
         System.out.println("Välkommen till NTIs bibliotek!");
         //Printar den allmänna valmenyn
         startOptionsWindow();
         while (true) {
-            System.out.print("Välj ett alternativ: ");
+            System.out.print("Skriv ett alternativ(Siffra): ");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -56,7 +54,7 @@ public class LibraryUserInterface {
         //Printar valmenyn
         loanerOptionsWindow();
         while (true) {
-            System.out.print("Välj ett alternativ:");
+            System.out.print("Skriv ett alternativ(Siffra):");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -95,7 +93,7 @@ public class LibraryUserInterface {
         //Printar valmenyn
         librarianOptionsWindow();
         while (true) {
-            System.out.print("Välj ett alternativ:");
+            System.out.print("Skriv ett alternativ(Siffra):");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -321,7 +319,7 @@ public class LibraryUserInterface {
         } catch (Exception e) {
             //om det inte är en acceptabel input printas det och metoden kallas sig själv igen
             System.out.println("Ogiltig input, försök igen!");
-            System.out.print("Välj ett alternativ: ");
+            System.out.print("Skriv ett alternativ(Siffra): ");
             scan.nextLine();
             tal = try_catch_int();
         }

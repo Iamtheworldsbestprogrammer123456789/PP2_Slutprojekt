@@ -3,6 +3,16 @@ Ljusets rike,Axel Västerberg,Fantasy-sektionen: hylla U1,false
 Hemligheternas kammare,Ebba Åberg,Skräck-sektionen: hylla V4,false
 Morgonbris,Ludvig Östlund,Roman-sektionen: hylla W2,false
 Stjärnfall,Saga Öberg,Science Fiction-sektionen: hylla X7,false
+Förbannelsens arv,Emma Karlsson,Fantasy-sektionen:hylla F5,false
+Dödens skugga,Oscar Eriksson,Skräck-sektionen:hylla D3,false
+Stjärnornas väg,Ida Andersson,Science Fiction-sektionen:hylla S8,false
+Den svarta rosen,Isak Persson,Fantasy-sektionen:hylla F9,false
+Blodets lockelse,Alma Berggren,Skräck-sektionen:hylla B2,false
+Världarnas möte,Linus Karlsson,Science Fiction-sektionen:hylla V6,false
+Speglarnas mysterium,Klara Lindqvist,Fantasy-sektionen:hylla S7,false
+Mörkrets ögon,Max Åkesson,Skräck-sektionen:hylla M4,false
+Den sista gränsen,Ella Nilsson,Science Fiction-sektionen:hylla G1,false
+Drakens blod,Oliver Persson,Fantasy-sektionen:hylla D8,false
 
 Lånare:
 Irene,202204160009
