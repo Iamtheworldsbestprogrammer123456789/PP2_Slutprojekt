@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Har fixat några små problem som jag hitta">
+    <list default="true" id="6311b942-12bd-4e99-9693-a015fa6d3239" name="Changes" comment="Nu känner jag mig klar. Har tagit bort några metoder som inte användes och har lagt till lite mer kommentarer. Har också testat programmet lite mer och lagt till mer böcker.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/library_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Librarian.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LibraryUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LibraryUserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loaner.java" afterDir="false" />
     </list>
@@ -89,7 +87,8 @@
       <workItem from="1711351824427" duration="841000" />
       <workItem from="1711352762542" duration="24477000" />
       <workItem from="1713174367186" duration="64569000" />
-      <workItem from="1714652609667" duration="2377000" />
+      <workItem from="1714652609667" duration="8390000" />
+      <workItem from="1715157361868" duration="1925000" />
     </task>
     <task id="LOCAL-00001" summary="La till klasserna kopplat till mitt klassdiagram">
       <option name="closed" value="true" />
@@ -187,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714570572445</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Nu känner jag mig klar. Har tagit bort några metoder som inte användes och har lagt till lite mer kommentarer. Har också testat programmet lite mer och lagt till mer böcker.">
+      <option name="closed" value="true" />
+      <created>1714655519758</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714655519758</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +224,7 @@
     <MESSAGE value="Har gjort mycket idag. Har gjort klart så att BookFileManager nu kan läsa och skriva till och från programmet. Jag är inte helt klart men gör denn commit för att jag ska göra lite ändringar i filen." />
     <MESSAGE value="Nu är jag typ helt klar med programmet. LibraryFileManager funkar nu utan problem och resten av programmet fungerar också. Hade problem med att ladda en lånares lån till programmet men nu är det fixat. Det sista jag ska göra är bara att kolla genom allt extra nogrant och testa programmet fullt ut" />
     <MESSAGE value="Har fixat några små problem som jag hitta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Har fixat några små problem som jag hitta" />
+    <MESSAGE value="Nu känner jag mig klar. Har tagit bort några metoder som inte användes och har lagt till lite mer kommentarer. Har också testat programmet lite mer och lagt till mer böcker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nu känner jag mig klar. Har tagit bort några metoder som inte användes och har lagt till lite mer kommentarer. Har också testat programmet lite mer och lagt till mer böcker." />
   </component>
 </project>

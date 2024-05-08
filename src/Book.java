@@ -1,10 +1,11 @@
-
+//Denna klass representerar en bok som har ett Namn, författare, plats i biblioteket och ifall den är lånad eller inte.
 public class Book {
     private final String TITLE;
     private final String AUTHOR;
     private final String LOCATION;
     private Boolean loaned;
 
+    //Constructor
     public Book(String title, String AUTHOR, String LOCATION, boolean loaned) {
         this.TITLE = title;
         this.AUTHOR = AUTHOR;
@@ -12,6 +13,7 @@ public class Book {
         this.loaned = loaned;
     }
 
+    //getter & setters:
     public String getTITLE() {
         return this.TITLE;
     }

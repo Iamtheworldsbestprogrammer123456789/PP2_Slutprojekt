@@ -12,14 +12,15 @@ public class Library {
     //Listan med alla bibliotekarier
     HashMap<String, Librarian> librarians = new HashMap<>();
 
+    //Constructor
     public Library() {
         LibraryFileManager.loadData(books, loaners, librarians);
     }
 
+    //getter & setters:
     public HashMap<String, Librarian> getLibrarians() {
         return librarians;
     }
-
 
     public ArrayList<Book> getBooks() {
         return books;

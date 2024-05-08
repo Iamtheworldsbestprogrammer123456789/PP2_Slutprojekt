@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Loaner extends User {
     ArrayList<Loan> loans = new ArrayList<>();
 
-    public Loaner(String name, String id) {
-        super(name, id);
+    //Constructor
+    public Loaner(String name, String personnummer) {
+        super(name, personnummer);
     }
 
+    //getter
     public ArrayList<Loan> getLoans() {
         return loans;
     }

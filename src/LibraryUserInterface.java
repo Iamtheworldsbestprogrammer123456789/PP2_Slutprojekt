@@ -8,6 +8,7 @@ public class LibraryUserInterface {
 
     static Scanner scan = new Scanner(System.in);
 
+    //Constructor
     public LibraryUserInterface(Library library) {
         this.library = library;
     }
@@ -17,7 +18,7 @@ public class LibraryUserInterface {
         //Printar den allmänna valmenyn
         startOptionsWindow();
         while (true) {
-            System.out.print("Skriv ett alternativ(Siffra): ");
+            System.out.print("Skriv ett alternativ från menyn(Siffra): ");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -54,7 +55,7 @@ public class LibraryUserInterface {
         //Printar valmenyn
         loanerOptionsWindow();
         while (true) {
-            System.out.print("Skriv ett alternativ(Siffra):");
+            System.out.print("Skriv ett alternativ från menyn(Siffra): ");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -93,7 +94,7 @@ public class LibraryUserInterface {
         //Printar valmenyn
         librarianOptionsWindow();
         while (true) {
-            System.out.print("Skriv ett alternativ(Siffra):");
+            System.out.print("Skriv ett alternativ från menyn(Siffra): ");
             int choice = try_catch_int();
             switch (choice) {
                 case 1:
@@ -319,7 +320,7 @@ public class LibraryUserInterface {
         } catch (Exception e) {
             //om det inte är en acceptabel input printas det och metoden kallas sig själv igen
             System.out.println("Ogiltig input, försök igen!");
-            System.out.print("Skriv ett alternativ(Siffra): ");
+            System.out.print("Skriv ett alternativ från menyn(Siffra): ");
             scan.nextLine();
             tal = try_catch_int();
         }
